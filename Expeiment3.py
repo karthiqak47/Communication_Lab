@@ -125,3 +125,16 @@ for EbN0, y in zip(EbN0_dB, list_y):
     plt.ylabel("Q")
     plt.grid()
     plt.show()
+
+theoritical_BER = 0.5 * erfc(np.sqrt(EbN0_lin))
+
+#semilog plot
+plt.figure()
+plt.semilogy(EbN0_dB,sim_BER,'o',label = 'Simulated BER')
+plt.semilogy(EbN0_dB,theoritical_BER,'-',label = 'Theoritical BER')
+plt.xlabel("Eb/N0 (dB)")
+plt.ylabel("BER")
+plt.title("BER Performance of BPSK over AWGN")
+plt.legend()
+plt.grid()
+plt.show()
